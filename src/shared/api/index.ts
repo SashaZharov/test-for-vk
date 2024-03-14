@@ -1,2 +1,2 @@
-export { getFacts } from "./getFacts/getFacts";
-export { getUserAge } from "./getUserAge/getUserAge";
+export { getFacts } from "./get-facts/getFacts";
+export { getUserAge } from "./get-user-age/getUserAge";

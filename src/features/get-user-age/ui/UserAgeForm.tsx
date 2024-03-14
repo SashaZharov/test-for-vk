@@ -2,8 +2,8 @@ import { FC, useCallback, useEffect, useState } from "react";
 import { FormItem, Button, Input } from "@vkontakte/vkui";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { yupSchema } from "../model/schema";
-import { useUserAgeQuery } from "../model/useUserAgeQuery";
+import { yupSchema } from "../lib/schema";
+import { useUserAgeQuery } from "../lib/useUserAgeQuery";
 import { IFormInput } from "./types";
 
 export type UserAgeFormProps = {
@@ -55,12 +55,6 @@ export const UserAgeForm: FC<UserAgeFormProps> = ({ setUserAge }) => {
         <Controller
           name="name"
           control={control}
-          rules={{
-            pattern: {
-              value: /^[A-Za-z]+$/,
-              message: "Имя должно содержать только буквы латинского алфавита",
-            },
-          }}
           render={({ field, fieldState }) => (
             <>
               <Input
