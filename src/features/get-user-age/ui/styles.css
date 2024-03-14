@@ -1,0 +1,11 @@
+.user-age-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  padding: 8px 12px;
+}
+
+.user-age-text {
+  font-size: 24px;
+}
