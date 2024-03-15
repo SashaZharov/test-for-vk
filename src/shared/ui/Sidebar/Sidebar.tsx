@@ -1,7 +1,10 @@
 import { MouseEvent, FC, useMemo } from "react";
 import classNames from "classnames";
 import { Cell, Panel, Group, PanelHeader, usePlatform } from "@vkontakte/vkui";
-import { Icon28Cards2Outline, Icon28ServicesOutline } from "@vkontakte/icons";
+import {
+  Icon28Cards2Outline,
+  Icon28UserRectangleHorizontalOutline,
+} from "@vkontakte/icons";
 
 import { Story } from "../../types";
 import "./Sidebar.css";
@@ -16,7 +19,10 @@ interface SidebarProps {
 export const Sidebar: FC<SidebarProps> = ({ onStoryChange, activeStory }) => {
   const platform = usePlatform();
   const factsIcon = useMemo(() => <Icon28Cards2Outline />, []);
-  const userAgeIcon = useMemo(() => <Icon28ServicesOutline />, []);
+  const userAgeIcon = useMemo(
+    () => <Icon28UserRectangleHorizontalOutline />,
+    []
+  );
 
   const hasHeader = platform !== "vkcom";
 
@@ -30,7 +36,7 @@ export const Sidebar: FC<SidebarProps> = ({ onStoryChange, activeStory }) => {
           onClick={onStoryChange}
           before={factsIcon}
           className={classNames({
-            Story__active: activeStory === Story.FACTS,
+            Sidebar__storyActive: activeStory === Story.FACTS,
           })}
         >
           Факт
@@ -42,7 +48,7 @@ export const Sidebar: FC<SidebarProps> = ({ onStoryChange, activeStory }) => {
           before={userAgeIcon}
           onClick={onStoryChange}
           className={classNames({
-            Story__active: activeStory === Story.USER_AGE,
+            Sidebar__storyActive: activeStory === Story.USER_AGE,
           })}
         >
           Возраст

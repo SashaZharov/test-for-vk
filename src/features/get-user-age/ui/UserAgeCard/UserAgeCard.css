@@ -1,4 +1,4 @@
-.user-age-value {
+.UserAge__cardDiv {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,6 +6,6 @@
   padding: 8px 12px;
 }
 
-.user-age-text {
+.UserAge__cardText {
   font-size: 24px;
 }

@@ -1,0 +1,1 @@
+export { GetUserAge } from "./GetUserAge";

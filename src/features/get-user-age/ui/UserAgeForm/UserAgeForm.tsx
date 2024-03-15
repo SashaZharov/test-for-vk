@@ -1,10 +1,9 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import { FormItem, Button, Input } from "@vkontakte/vkui";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { yupSchema } from "../lib/schema";
-import { useUserAgeQuery } from "../lib/useUserAgeQuery";
-import { IFormInput } from "./types";
+import { SubmitHandler, Controller } from "react-hook-form";
+import { useUserAgeQuery } from "../../lib/useUserAgeQuery";
+import { FormInputType } from "../types";
+import { useUserAgeForm } from "../../lib/useUserAgeForm";
 
 export type UserAgeFormProps = {
   setUserAge: React.Dispatch<React.SetStateAction<string>>;
@@ -13,18 +12,11 @@ export type UserAgeFormProps = {
 export const UserAgeForm: FC<UserAgeFormProps> = ({ setUserAge }) => {
   const [timeoutId, setTimeoutId] = useState<number | null>(null);
   const [currentName, setCurrentName] = useState("");
-
-  const { control, handleSubmit, watch } = useForm({
-    defaultValues: {
-      name: "",
-    },
-    resolver: yupResolver(yupSchema),
-  });
-
+  const { control, handleSubmit, watch } = useUserAgeForm();
   const watchName = watch("name") || "";
   const { refetch } = useUserAgeQuery(watchName);
 
-  const onSubmit: SubmitHandler<IFormInput> = useCallback(async () => {
+  const onSubmit: SubmitHandler<FormInputType> = useCallback(async () => {
     if (watchName != currentName) {
       await refetch().then((data) => {
         setCurrentName(watchName);

@@ -1,0 +1,1 @@
+export { UserAgeCard } from "./UserAgeCard";

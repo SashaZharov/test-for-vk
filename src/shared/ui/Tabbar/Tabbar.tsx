@@ -1,10 +1,13 @@
-import { MouseEvent, FC } from "react";
+import { MouseEvent, FC, useMemo } from "react";
 import {
   useAdaptivityConditionalRender,
   Tabbar as VKUITabbar,
   TabbarItem,
 } from "@vkontakte/vkui";
-import { Icon28NewsfeedOutline, Icon28ServicesOutline } from "@vkontakte/icons";
+import {
+  Icon28Cards2Outline,
+  Icon28UserRectangleHorizontalOutline,
+} from "@vkontakte/icons";
 
 import { Story } from "../../types";
 
@@ -17,6 +20,11 @@ interface TabbarProps {
 
 export const Tabbar: FC<TabbarProps> = ({ onStoryChange, activeStory }) => {
   const { viewWidth } = useAdaptivityConditionalRender();
+  const factsIcon = useMemo(() => <Icon28Cards2Outline />, []);
+  const userAgeIcon = useMemo(
+    () => <Icon28UserRectangleHorizontalOutline />,
+    []
+  );
 
   return (
     viewWidth.tabletMinus && (
@@ -27,7 +35,7 @@ export const Tabbar: FC<TabbarProps> = ({ onStoryChange, activeStory }) => {
           data-story={Story.FACTS}
           text="Факты"
         >
-          <Icon28NewsfeedOutline />
+          {factsIcon}
         </TabbarItem>
         <TabbarItem
           onClick={onStoryChange}
@@ -35,7 +43,7 @@ export const Tabbar: FC<TabbarProps> = ({ onStoryChange, activeStory }) => {
           data-story={Story.USER_AGE}
           text="Возраст"
         >
-          <Icon28ServicesOutline />
+          {userAgeIcon}
         </TabbarItem>
       </VKUITabbar>
     )
