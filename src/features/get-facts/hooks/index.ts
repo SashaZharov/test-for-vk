@@ -1,0 +1,1 @@
+export { useFactsQuery } from "./useFactsQuery";

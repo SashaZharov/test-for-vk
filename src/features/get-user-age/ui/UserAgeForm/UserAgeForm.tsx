@@ -1,45 +1,48 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import { FormItem, Button, Input } from "@vkontakte/vkui";
 import { SubmitHandler, Controller } from "react-hook-form";
-import { useUserAgeQuery } from "../../lib/useUserAgeQuery";
+import { useUserAgeQuery } from "../../hooks/useUserAgeQuery";
 import { FormInputType } from "../types";
-import { useUserAgeForm } from "../../lib/useUserAgeForm";
+import { useUserAgeForm } from "../../hooks/useUserAgeForm";
+import { useQueryClient } from "@tanstack/react-query";
 
 export type UserAgeFormProps = {
   setUserAge: React.Dispatch<React.SetStateAction<string>>;
 };
 
+const INPUT_DELAY = 3000;
+
 export const UserAgeForm: FC<UserAgeFormProps> = ({ setUserAge }) => {
-  const [timeoutId, setTimeoutId] = useState<number | null>(null);
   const [currentName, setCurrentName] = useState("");
   const { control, handleSubmit, watch } = useUserAgeForm();
   const watchName = watch("name") || "";
   const { refetch } = useUserAgeQuery(watchName);
+  const queryClient = useQueryClient();
 
   const onSubmit: SubmitHandler<FormInputType> = useCallback(async () => {
     if (watchName != currentName) {
+      queryClient.cancelQueries({ queryKey: ["user-age"] });
       await refetch().then((data) => {
         setCurrentName(watchName);
         setUserAge(data.data);
       });
     }
-  }, [currentName, refetch, setUserAge, watchName]);
+  }, [currentName, queryClient, refetch, setUserAge, watchName]);
 
   useEffect(() => {
-    if (watchName && !timeoutId) {
-      const id = setTimeout(() => {
+    let timerId: number;
+    if (watchName) {
+      timerId = setTimeout(() => {
         handleSubmit(onSubmit)();
-      }, 3000);
-      setTimeoutId(id);
+      }, INPUT_DELAY);
     }
 
     return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-        setTimeoutId(null);
+      if (timerId) {
+        clearTimeout(timerId);
       }
     };
-  }, [watchName, timeoutId, handleSubmit, onSubmit]);
+  }, [watchName, handleSubmit, onSubmit]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

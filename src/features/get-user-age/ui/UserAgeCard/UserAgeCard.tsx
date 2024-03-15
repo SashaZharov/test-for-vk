@@ -10,12 +10,10 @@ export const UserAgeCard: FC<UserAgeCardProps> = ({ userAge }) => {
     <CardGrid size="l">
       <Card mode="shadow">
         <div className="UserAge__cardDiv">
-          {userAge ? (
+          {userAge && (
             <Text weight="2" className="UserAge__cardText">
-              {userAge} {ageToString(userAge)}
+              {userAge} {ageToString(+userAge)}
             </Text>
-          ) : (
-            <></>
           )}
         </div>
       </Card>

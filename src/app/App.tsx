@@ -13,6 +13,8 @@ import { UserAge } from "../pages/user-age";
 import { Sidebar, Tabbar } from "../shared/ui";
 import { Story } from "../shared/types";
 
+const SPLIT_COL_WIDTH = 280;
+
 export const App = () => {
   const platform = usePlatform();
   const [activeStory, setActiveStory] = useState(Story.FACTS);
@@ -21,8 +23,10 @@ export const App = () => {
 
   const hasHeader = platform !== "vkcom";
 
-  const onStoryChange = (e: MouseEvent<HTMLElement, globalThis.MouseEvent>) => {
-    const element = e.currentTarget;
+  const onStoryChange = (
+    event: MouseEvent<HTMLElement, globalThis.MouseEvent>
+  ) => {
+    const element = event.currentTarget;
     const newActiveStory = element.dataset.story;
     if (newActiveStory) setActiveStory(newActiveStory as Story);
   };
@@ -36,8 +40,8 @@ export const App = () => {
         <SplitCol
           className={tabletPlus.className}
           fixed
-          width={280}
-          maxWidth={280}
+          width={SPLIT_COL_WIDTH}
+          maxWidth={SPLIT_COL_WIDTH}
         >
           <Sidebar activeStory={activeStory} onStoryChange={onStoryChange} />
         </SplitCol>

@@ -1,0 +1,1 @@
+export { findEndFirstWord } from "./findEndFirstWord";

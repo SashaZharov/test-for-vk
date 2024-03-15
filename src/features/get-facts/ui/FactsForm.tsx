@@ -1,57 +1,46 @@
-import { FC, FormEvent, useEffect, useRef, useState } from "react";
+import { FC, FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { Button, Textarea, FormItem } from "@vkontakte/vkui";
-import { getFacts } from "../../../shared/api";
-import { useQuery } from "@tanstack/react-query";
+import { useFactsQuery } from "../hooks";
+import { findEndFirstWord } from "../lib";
 
 export const FactsForm: FC = () => {
-  const [isDisabled, setIsDisabled] = useState(true);
-  const [fact, setFact] = useState("");
-  const [editFlag, setEditFlag] = useState(false);
+  const [isDataFetching, setIsDataFetching] = useState(true);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const { refetch } = useFactsQuery();
 
-  const { refetch } = useQuery({
-    queryKey: ["fact"],
-    queryFn: getFacts,
-    enabled: false,
-  });
+  const handleSubmit = useCallback(
+    async (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setIsDataFetching(true);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsDisabled(true);
-    setEditFlag(false);
-
-    refetch()
-      .then((newData) => setFact(newData.data))
-      .catch((error) => console.error("Error refetching data:", error))
-      .finally(() => setIsDisabled(false));
-  };
-
-  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newText = e.target.value;
-    setEditFlag(true);
-    setFact(newText);
-  };
+      refetch()
+        .then((newData) => {
+          if (textareaRef.current) {
+            textareaRef.current.value = newData.data;
+          }
+        })
+        .catch((error) => console.error("Error refetching data:", error))
+        .finally(() => setIsDataFetching(false));
+    },
+    [refetch]
+  );
 
   useEffect(() => {
-    if (textareaRef.current && fact !== undefined && !editFlag) {
+    if (textareaRef.current && !isDataFetching) {
+      const firstSpaceIndex = findEndFirstWord(textareaRef.current.value);
       textareaRef.current.focus();
-      const firstSpaceIndex = fact.indexOf(" ");
-      if (firstSpaceIndex !== -1) {
-        textareaRef.current.setSelectionRange(firstSpaceIndex, firstSpaceIndex);
-      }
+      textareaRef.current.setSelectionRange(firstSpaceIndex, firstSpaceIndex);
     }
-  }, [fact, editFlag]);
+  }, [isDataFetching]);
 
   return (
     <form onSubmit={handleSubmit}>
       <FormItem htmlFor="fact" top="Факт">
         <Textarea
           id="fact"
-          disabled={isDisabled}
-          value={fact}
+          disabled={isDataFetching}
           getRef={textareaRef}
           rows={4}
-          onChange={(e) => handleTextareaChange(e)}
         />
       </FormItem>
       <FormItem>

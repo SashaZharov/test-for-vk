@@ -1,7 +1,7 @@
-export const getFacts = async () => {
-  const url = "https://catfact.ninja/fact";
+import { FACTS_URL } from "../../constants";
 
-  return fetch(url)
+export const getFacts = async () => {
+  return fetch(FACTS_URL)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -14,6 +14,6 @@ export const getFacts = async () => {
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
-      throw error;
+      return;
     });
 };
