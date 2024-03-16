@@ -13,10 +13,10 @@ module.exports = {
     "import/resolver": {
       alias: {
         map: [
-          ["shared", "./src/shared"],
-          ["features", "./src/features"],
-          ["pages", "./src/pages"],
-          ["app", "./src/app"],
+          ["@shared", "./src/shared"],
+          ["@features", "./src/features"],
+          ["@pages", "./src/pages"],
+          ["@app", "./src/app"],
         ],
         extensions: [".js", ".jsx", ".ts", ".tsx"],
       },
