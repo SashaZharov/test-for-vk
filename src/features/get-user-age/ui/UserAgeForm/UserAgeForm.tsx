@@ -1,10 +1,10 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import { FormItem, Button, Input } from "@vkontakte/vkui";
+import { useQueryClient } from "@tanstack/react-query";
 import { SubmitHandler, Controller } from "react-hook-form";
+import { useUserAgeForm } from "../../hooks/useUserAgeForm";
 import { useUserAgeQuery } from "../../hooks/useUserAgeQuery";
 import { FormInputType } from "../types";
-import { useUserAgeForm } from "../../hooks/useUserAgeForm";
-import { useQueryClient } from "@tanstack/react-query";
 
 export type UserAgeFormProps = {
   setUserAge: React.Dispatch<React.SetStateAction<string>>;

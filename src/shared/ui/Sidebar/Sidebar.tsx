@@ -1,12 +1,11 @@
 import { MouseEvent, FC, useMemo } from "react";
-import classNames from "classnames";
 import { Cell, Panel, Group, PanelHeader, usePlatform } from "@vkontakte/vkui";
 import {
   Icon28Cards2Outline,
   Icon28UserRectangleHorizontalOutline,
 } from "@vkontakte/icons";
-
-import { Story } from "../../types";
+import classNames from "classnames";
+import { Story } from "shared/types";
 import "./Sidebar.css";
 
 interface SidebarProps {

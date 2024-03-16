@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Text, CardGrid, Card } from "@vkontakte/vkui";
-import "./UserAgeCard.css";
 import { ageToString } from "../../lib/ageToString";
+import "./UserAgeCard.css";
 
 type UserAgeCardProps = { userAge: string };
 

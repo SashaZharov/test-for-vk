@@ -8,8 +8,7 @@ import {
   Icon28Cards2Outline,
   Icon28UserRectangleHorizontalOutline,
 } from "@vkontakte/icons";
-
-import { Story } from "../../types";
+import { Story } from "shared/types";
 
 interface TabbarProps {
   activeStory: string;

@@ -10,8 +10,8 @@ import {
 
 import { Facts } from "../pages/facts";
 import { UserAge } from "../pages/user-age";
-import { Sidebar, Tabbar } from "../shared/ui";
-import { Story } from "../shared/types";
+import { Sidebar, Tabbar } from "shared/ui";
+import { Story } from "shared/types";
 
 const SPLIT_COL_WIDTH = 280;
 
