@@ -8,7 +8,7 @@ import vkBridge, {
 } from "@vkontakte/vk-bridge";
 import { AdaptivityProvider, ConfigProvider, AppRoot } from "@vkontakte/vkui";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { transformVKBridgeAdaptivity } from "../shared/utils";
+import { transformVKBridgeAdaptivity } from "@shared/utils";
 import { QueryClient } from "@tanstack/react-query";
 import "@vkontakte/vkui/dist/vkui.css";
 import { App } from "./App";

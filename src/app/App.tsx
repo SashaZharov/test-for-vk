@@ -8,10 +8,10 @@ import {
   useAdaptivityConditionalRender,
 } from "@vkontakte/vkui";
 
-import { Facts } from "../pages/facts";
-import { UserAge } from "../pages/user-age";
-import { Sidebar, Tabbar } from "shared/ui";
-import { Story } from "shared/types";
+import { Facts } from "@pages/facts";
+import { UserAge } from "@pages/user-age";
+import { Sidebar, Tabbar } from "@shared/ui";
+import { Story } from "@shared/types";
 
 const SPLIT_COL_WIDTH = 280;
 
@@ -34,7 +34,7 @@ export const App = () => {
   return (
     <SplitLayout
       header={hasHeader && <PanelHeader delimiter="none" />}
-      className="Splitlayout"
+      className="App__splitLayout"
     >
       {tabletPlus && (
         <SplitCol

@@ -1,4 +1,4 @@
-import { USER_AGE_URL } from "shared/constants";
+import { USER_AGE_URL } from "@shared/constants";
 
 export const getUserAge = (name: string, signal: AbortSignal) => {
   const url = `${USER_AGE_URL}?name=${name}`;

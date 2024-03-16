@@ -1,16 +1,14 @@
 import { FC } from "react";
-import { Panel, PanelHeader, NavIdProps, Group, View } from "@vkontakte/vkui";
-import { FactsForm } from "features/get-facts/";
-import { Story } from "shared/types";
+import { Panel, PanelHeader, NavIdProps, View } from "@vkontakte/vkui";
+import { Story } from "@shared/types";
+import { GetFacts } from "@features/get-facts";
 
 export const Facts: FC<NavIdProps> = ({ id }) => {
   return (
     <View id={id} activePanel={id as Story}>
       <Panel id={id}>
         <PanelHeader>Факты</PanelHeader>
-        <Group>
-          <FactsForm />
-        </Group>
+        <GetFacts />
       </Panel>
     </View>
   );

@@ -1,1 +1,1 @@
-export { FactsForm } from "./ui/FactsForm";
+export { GetFacts } from "./compose";

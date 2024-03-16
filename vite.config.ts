@@ -37,10 +37,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      shared: "/src/shared/",
-      features: "/src/features/",
-      page: "/src/page/",
-      app: "/src/app/",
+      "@shared": "/src/shared/",
+      "@features": "/src/features/",
+      "@pages": "/src/pages/",
+      "@app": "/src/app/",
     },
   },
 });

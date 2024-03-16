@@ -15,7 +15,7 @@ module.exports = {
         map: [
           ["shared", "./src/shared"],
           ["features", "./src/features"],
-          ["page", "./src/page"],
+          ["pages", "./src/pages"],
           ["app", "./src/app"],
         ],
         extensions: [".js", ".jsx", ".ts", ".tsx"],

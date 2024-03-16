@@ -5,7 +5,7 @@ import {
   Icon28UserRectangleHorizontalOutline,
 } from "@vkontakte/icons";
 import classNames from "classnames";
-import { Story } from "shared/types";
+import { Story } from "@shared/types";
 import "./Sidebar.css";
 
 interface SidebarProps {
