@@ -34,4 +34,4 @@
 
 ## Результат
 
-Ссылка на мини-приложение: [https://vk.com/services?w=app51872744_247872158](https://vk.com/services?w=app51872744_247872158)
+Ссылка на мини-приложение: [https://vk.cc/cvtKS2](https://vk.cc/cvtKS2)
