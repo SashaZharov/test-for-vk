@@ -1,6 +1,6 @@
-import { FC, useCallback, useEffect, useState } from "react";
-import { FormItem, Button, Input } from "@vkontakte/vkui";
 import { useQueryClient } from "@tanstack/react-query";
+import { FormItem, Button, Input } from "@vkontakte/vkui";
+import { FC, useCallback, useEffect, useState } from "react";
 import { SubmitHandler, Controller } from "react-hook-form";
 import { useUserAgeForm } from "../../hooks/useUserAgeForm";
 import { useUserAgeQuery } from "../../hooks/useUserAgeQuery";

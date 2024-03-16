@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
 import { Group, Header } from "@vkontakte/vkui";
-import { UserAgeForm } from "../ui/UserAgeForm";
+import { FC, useState } from "react";
 import { UserAgeCard } from "../ui/UserAgeCard";
+import { UserAgeForm } from "../ui/UserAgeForm";
 
 export const GetUserAge: FC = () => {
   const [userAge, setUserAge] = useState("");

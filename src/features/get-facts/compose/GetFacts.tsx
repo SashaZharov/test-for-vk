@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { Group } from "@vkontakte/vkui";
+import { FC } from "react";
 import { FactsForm } from "../ui";
 
 export const GetFacts: FC = () => {

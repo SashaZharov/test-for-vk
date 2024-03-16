@@ -1,14 +1,14 @@
-import { MouseEvent, FC, useMemo } from "react";
+import {
+  Icon28Cards2Outline,
+  Icon28UserRectangleHorizontalOutline,
+} from "@vkontakte/icons";
 import {
   useAdaptivityConditionalRender,
   Tabbar as VKUITabbar,
   TabbarItem,
 } from "@vkontakte/vkui";
-import {
-  Icon28Cards2Outline,
-  Icon28UserRectangleHorizontalOutline,
-} from "@vkontakte/icons";
-import { Story } from "@shared/types";
+import { MouseEvent, FC, useMemo } from "react";
+import { Story } from "shared/types";
 
 interface TabbarProps {
   activeStory: string;

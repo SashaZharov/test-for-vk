@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { Text, CardGrid, Card } from "@vkontakte/vkui";
+import { FC } from "react";
 import { ageToString } from "../../lib/ageToString";
 import "./UserAgeCard.css";
 

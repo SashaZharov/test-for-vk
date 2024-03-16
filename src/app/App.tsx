@@ -1,4 +1,3 @@
-import { useState, MouseEvent } from "react";
 import {
   Epic,
   SplitCol,
@@ -7,11 +6,12 @@ import {
   usePlatform,
   useAdaptivityConditionalRender,
 } from "@vkontakte/vkui";
+import { useState, MouseEvent } from "react";
 
-import { Facts } from "@pages/facts";
-import { UserAge } from "@pages/user-age";
-import { Sidebar, Tabbar } from "@shared/ui";
-import { Story } from "@shared/types";
+import { Facts } from "pages/facts";
+import { UserAge } from "pages/user-age";
+import { Story } from "shared/types";
+import { Sidebar, Tabbar } from "shared/ui";
 
 const SPLIT_COL_WIDTH = 280;
 

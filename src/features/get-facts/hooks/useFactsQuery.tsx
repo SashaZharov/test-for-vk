@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getFacts } from "@shared/api";
+import { getFacts } from "shared/api";
 
 const GET_FACTS_QUERY_SETTINGS = {
   queryKey: ["fact"],

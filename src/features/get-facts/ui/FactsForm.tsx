@@ -1,5 +1,5 @@
-import { FC, FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { Button, Textarea, FormItem } from "@vkontakte/vkui";
+import { FC, FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { useFactsQuery } from "../hooks";
 import { findEndFirstWord } from "../lib";
 
