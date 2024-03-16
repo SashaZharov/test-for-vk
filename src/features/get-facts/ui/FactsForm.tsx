@@ -16,7 +16,7 @@ export const FactsForm: FC = () => {
       refetch()
         .then((newData) => {
           if (textareaRef.current) {
-            textareaRef.current.value = newData.data;
+            textareaRef.current.value = newData.data as string;
           }
         })
         .catch((error) => console.error("Error refetching data:", error))
@@ -40,7 +40,7 @@ export const FactsForm: FC = () => {
           id="fact"
           disabled={isDataFetching}
           getRef={textareaRef}
-          rows={4}
+          rows={5}
         />
       </FormItem>
       <FormItem>

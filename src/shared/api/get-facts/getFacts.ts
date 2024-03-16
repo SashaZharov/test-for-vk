@@ -1,4 +1,4 @@
-import { FACTS_URL } from "../../constants";
+import { FACTS_URL } from "shared/constants";
 
 export const getFacts = async () => {
   return fetch(FACTS_URL)

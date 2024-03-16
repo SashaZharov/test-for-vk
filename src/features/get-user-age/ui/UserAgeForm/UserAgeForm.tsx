@@ -5,6 +5,7 @@ import { SubmitHandler, Controller } from "react-hook-form";
 import { useUserAgeForm } from "../../hooks/useUserAgeForm";
 import { useUserAgeQuery } from "../../hooks/useUserAgeQuery";
 import { FormInputType } from "../types";
+import "./UserAgeFrom.css";
 
 export type UserAgeFormProps = {
   setUserAge: React.Dispatch<React.SetStateAction<string>>;
@@ -60,7 +61,9 @@ export const UserAgeForm: FC<UserAgeFormProps> = ({ setUserAge }) => {
                 }}
               />
               {fieldState.error && (
-                <div style={{ color: "red" }}>{fieldState.error.message}</div>
+                <div className="UserAgeForm__errorMessage">
+                  {fieldState.error.message}
+                </div>
               )}
             </>
           )}
