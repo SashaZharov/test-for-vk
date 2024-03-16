@@ -6,7 +6,7 @@
 
 - React
 - TypeScript
-- TankStack Query
+- TanStack Query
 - React-Hook-Form + Yup
 - VKUI
 
